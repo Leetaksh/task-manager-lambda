@@ -18,7 +18,7 @@ const db = new sqlite3.Database("./tasks.db", (err) => {
   }
 });
 
-// Create table if not exists
+
 db.run(`
 CREATE TABLE IF NOT EXISTS tasks (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS tasks (
 )
 `);
 
-// -------------------
+
 // GET ALL TASKS
-// -------------------
+
 
 app.get("/tasks", (req, res) => {
   const { search, status } = req.query;
@@ -62,9 +62,9 @@ app.get("/tasks", (req, res) => {
   });
 });
 
-// -------------------
+
 // GET ONE TASK
-// -------------------
+
 
 app.get("/tasks/:id", (req, res) => {
   const id = req.params.id;
@@ -90,9 +90,9 @@ app.get("/tasks/:id", (req, res) => {
   );
 });
 
-// -------------------
+
 // CREATE TASK
-// -------------------
+
 
 app.post("/tasks", (req, res) => {
   const { title, description } = req.body;
@@ -125,9 +125,9 @@ app.post("/tasks", (req, res) => {
   );
 });
 
-// -------------------
+
 // UPDATE TASK
-// -------------------
+
 
 app.put("/tasks/:id", (req, res) => {
   const id = req.params.id;
@@ -171,9 +171,9 @@ app.put("/tasks/:id", (req, res) => {
   );
 });
 
-// -------------------
+
 // DELETE TASK
-// -------------------
+
 
 app.delete("/tasks/:id", (req, res) => {
   const id = req.params.id;
